@@ -13,8 +13,8 @@
 }
 
 .footer {
-  display: flex;
-  flex: 1;
+  /*display: flex;
+  flex: 1;*/
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
@@ -152,4 +152,14 @@
 
 .FlexItem {
   flex: 0 26%;
+}
+
+.FlexContainer2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.FlexItem2 {
+  flex: 8.6rem;
 }
