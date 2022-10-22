@@ -155,7 +155,9 @@ export const Configuration: WebsiteConfiguration = {
     Icon: "https://cdn.discordapp.com/avatars/942858850850205717/35f7b68f8f64be0df28554968531bcd2?size=4096",
     Title: "Forms",
     IconRounded: TailwindRoundedSizes.Full,
-    Description: "Create custom in-app modals and send submissions to a channel using webhooks."
+    Description: "Create custom in-app modals and send submissions to a channel using webhooks.",
+    Link: "https://discord.gg/KGB6QpBK4F",
+    Interactable: true
   },{
     Interactable: false,
     Emoji: "✈️",

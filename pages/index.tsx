@@ -90,7 +90,7 @@ const Home: NextPage = () => {
           <div className="gridDisplay">
             {Configuration.Sections.map(e => (
               <a href={e.Link}>
-                <div className='px-20 py-5 card text-center'>
+                <div className={`px-20 py-5 card text-center ${e.Interactable && "ActiveCard"}`}>
                   {
                     e.Icon != null && (
                       e.IconBackground == true ? (
