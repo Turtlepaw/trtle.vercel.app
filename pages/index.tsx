@@ -44,7 +44,7 @@ const Home: NextPage = () => {
       <main className="main">
         {
           Configuration.Avatar != null &&
-          <Image
+          <img
             src={Configuration.Avatar}
             alt="Avatar"
             width="100rem"
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
             className="rounded-full"
           />
         }
-        <h1 className="font-black text-3xl mt-5">
+        <h1 className="font-bold text-3xl mt-5">
           {Configuration.Name}<span className="DiscordTag">{Configuration.DiscordTag}</span>
         </h1>
         <hr className='mt-5 w-[30rem]' />
@@ -95,25 +95,29 @@ const Home: NextPage = () => {
                     e.Icon != null && (
                       e.IconBackground == true ? (
                         <Center className='pb-5'>
-                          <div className={e.IconBackground == true ? "bg-gray-600 rounded-full w-[4rem] h-[4rem]" : ""}>
+                          <div className={e.IconBackground == true ? "bg-gray-600 rounded-full w-[4rem] h-[4rem] py-4" : ""}>
                             <Center className='justify-center flex align-middle items-center Center'>
-                              <Image
+                              <img
                                 src={e.Icon}
                                 alt="Card Icon"
                                 width="38rem"
                                 height="38rem"
+                                className={`${e.IconRounded}`}
                               />
                             </Center>
                           </div>
                         </Center>
                       ) : (
                         <div className='pb-2'>
-                          <Image
+                          <Center>
+                          <img
                             src={e.Icon}
                             alt="Card Icon"
                             width="40rem"
                             height="40rem"
+                            className={`${e.IconRounded} my-4`}
                           />
+                          </Center>
                         </div>
                       )
                     )

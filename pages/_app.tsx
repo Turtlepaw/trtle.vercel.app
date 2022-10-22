@@ -10,6 +10,18 @@ export type URL = `${"http" | "https"}://${string}.${string}` | `/${string}` | `
 export type ImageURL = `/${string}.${"svg" | "png" | "jpg" | "jpeg"}` | URL;
 export type DiscordTag = `#${number}${number}${number}${number}`
 
+export enum TailwindRoundedSizes {
+  ExtraLarge = "rounded-xl",
+  Large = "rounded-lg",
+  Medium = "rounded-md",
+  Small = "rounded-sm",
+  ExtraSmall = "rounded-sm",
+  Full = "rounded-full",
+  // Here you can create a custom
+  // rounded preset.
+  Custom = "rounded=[.5rem]"
+};
+
 export enum LinkStyle {
   /**
    * Similar like the "Connections" tab in Discord.
@@ -37,6 +49,10 @@ export interface WebsiteSection {
    * If the icon selected should have a gray background.
    */
   IconBackground?: boolean;
+  /**
+   * If the Icon should have rounded corners.
+   */
+  IconRounded?: TailwindRoundedSizes;
   /**
    * The emoji that will appear as the icon.
    */
@@ -88,18 +104,23 @@ export interface WebsiteConfiguration {
    * The style of the Links.
    */
   LinkStyle?: LinkStyle;
+  /**
+   * The website url for the embed.
+   */
+  WebsiteURL: URL;
 }
 
 // Configuration*
 // ^ This is required
 // This is what'll appear on your website
 export const Configuration: WebsiteConfiguration = {
-  Name: "Username",
-  Avatar: "/Avatar.svg",
-  DiscordTag: "#0000",
-  Description: "Hello, I'm an open-source personal website template!",
+  WebsiteURL: "https://trtle.xyz/",
+  Name: "Turtlepaw",
+  Avatar: "/Avatar.png",
+  DiscordTag: "#3806",
+  Description: "Hi there, I'm Turtlepaw! I enjoy building websites, playing games, and drawing. Building open-source stuff since 2021.",
   NavigationLinks: [{
-    URL: "mailto:username@mail.com",
+    URL: "mailto:hi@trtle.xyz",
     Icon: "/Mail.svg"
   }, {
     Icon: "/DiscordOutlined.svg",
@@ -131,20 +152,15 @@ export const Configuration: WebsiteConfiguration = {
   }],
   LinkStyle: LinkStyle.None,
   Sections: [{
+    Icon: "https://cdn.discordapp.com/avatars/942858850850205717/35f7b68f8f64be0df28554968531bcd2?size=4096",
+    Title: "Forms",
+    IconRounded: TailwindRoundedSizes.Full,
+    Description: "Create custom in-app modals and send submissions to a channel using webhooks."
+  },{
     Interactable: false,
-    Emoji: "🌿",
-    Title: "Stylish",
-    Description: "It looks good, on mobile, and on desktop."
-  }, {
-    Interactable: false,
-    Emoji: "🕊️",
-    Title: "Social Icons Included",
-    Description: "We've included some social icons, like Reddit, Discord, and Twitter."
-  }, {
-    Interactable: false,
-    Emoji: "⚙️",
-    Title: "Easy to Configure",
-    Description: "With the configuration object, you can configure some features, and if you want to configure more, you can always edit the React code."
+    Emoji: "✈️",
+    Title: "Nothing Right Now",
+    Description: "I haven't been working on anything else lately."
   }]
 }
 
@@ -216,13 +232,30 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="Background Text">
       <ChakraProvider theme={theme}>
-      <Head>
-        <title>{Configuration.Name}</title>
-        <meta name="description" content={Configuration.Description} />
-        <link rel="icon" href={Configuration.Avatar} />
-      </Head>
-      <Component {...pageProps} />
-    </ChakraProvider>
+        <Head>
+          <title>{Configuration.Name}</title>
+          {/* Primary Meta Tags */}
+          <meta name="title" content={Configuration.Name} />
+          <meta name="description" content={Configuration.Description} />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={Configuration.WebsiteURL} />
+          <meta property="og:title" content={Configuration.Name} />
+          <meta property="og:description" content={Configuration.Description} />
+          <meta property="og:image" content={Configuration.Avatar} />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content={Configuration.WebsiteURL} />
+          <meta property="twitter:title" content={Configuration.Name} />
+          <meta property="twitter:description" content={Configuration.Description} />
+          <meta property="twitter:image" content={Configuration.Avatar} />
+
+          <link rel="icon" href={Configuration.Avatar} />
+        </Head>
+        <Component {...pageProps} />
+      </ChakraProvider>
     </div>
   )
 }
