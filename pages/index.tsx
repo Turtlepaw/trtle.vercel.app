@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
-import { Configuration } from './_app'
+import { Configuration, SkillStyles } from './_app'
 
 function Feature({ IsChecked, children }: {
   IsChecked: boolean;
@@ -85,6 +85,43 @@ const Home: NextPage = () => {
           </div>
         </div>
 
+        {
+          Configuration.Skills != null &&
+          (
+            <div className='pt-5'>
+              <h2 className='uppercase font-bold text-lg'>My Skills</h2>
+              <div className={`${Configuration.SkillStyle}`}>
+                {
+                  (Configuration.SkillStyle.length > 0) ? (
+                    <div className='pt-3 FlexContainer2'>
+                      {Configuration.Skills.map(e => {
+                        const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
+                        return <img src={URL} className="mx-1 my-1 FlexItem2 w-1"/>
+                      })}
+                    </div>
+                  ) : (
+                    <Center className='mt-2'>
+                      {Configuration.Skills.map(e => {
+                        const Name = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", ""));
+                        return (
+                          <div className='Role rounded-[.3rem] w-24 mx-1 py-1'>
+                            <Center>
+                              <img src={e} className="w-5 inline hover:opacity-75 cursor-pointer" />
+                              <div className='inline ml-2'>
+                                {Name}
+                              </div>
+                            </Center>
+                          </div>
+                        )
+                      })}
+                    </Center>
+                  )
+                }
+              </div>
+            </div>
+          )
+        }
+
         <div className='pt-5'>
           <h2 className='uppercase font-bold text-lg'>What I do</h2>
           <div className="gridDisplay">
@@ -110,13 +147,13 @@ const Home: NextPage = () => {
                       ) : (
                         <div className='pb-2'>
                           <Center>
-                          <img
-                            src={e.Icon}
-                            alt="Card Icon"
-                            width="40rem"
-                            height="40rem"
-                            className={`${e.IconRounded} my-4`}
-                          />
+                            <img
+                              src={e.Icon}
+                              alt="Card Icon"
+                              width="40rem"
+                              height="40rem"
+                              className={`${e.IconRounded} my-4`}
+                            />
                           </Center>
                         </div>
                       )

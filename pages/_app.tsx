@@ -30,6 +30,40 @@ export enum LinkStyle {
   None = ""
 }
 
+export enum Icons {
+  React = "/icons/React-Dark.svg",
+  CSS = "/icons/CSS.svg",
+  HTML = "/icons/HTML.svg",
+  Discord = "/icons/Discord.svg",
+  Blender = "/icons/Blender-Dark.svg",
+  Cloudflare = "/icons/Cloudflare-Dark.svg",
+  Codepen = "/icons/CodePen-Dark.svg",
+  ExpressJS = "/icons/ExpressJS-Dark.svg",
+  Git = "/icons/Git.svg",
+  Github = "/icons/Github-Dark.svg",
+  Markdown = "/icons/Markdown-Dark.svg",
+  NextJS = "/icons/NextJS-Dark.svg",
+  Vercel = "/icons/Vercel-Dark.svg",
+  StackOverflow = "/icons/StackOverflow-Dark.svg",
+  SVG = "/icons/SVG-Dark.svg",
+  Twitter = "/icons/Twitter.svg",
+  VisualStudio = "/icons/VisualStudio-Dark.svg",
+  VSCode = "/icons/VSCode-Dark.svg",
+  JavaScript = "/icons/JavaScript.svg",
+  NodeJS = "/icons/NodeJS-Dark.svg",
+  DiscordBots = "/icons/DiscordBots.svg",
+}
+
+export enum SkillStyles {
+  Card = "card px-5 py-5",
+  InteractableCard = "card ActiveCard px-5 py-5",
+  /**
+   *  Similar to a Discord Role
+   */
+  Block = "",
+  None = "none"
+}
+
 export interface WebsiteLink {
   URL: URL;
   Icon?: ImageURL;
@@ -108,6 +142,14 @@ export interface WebsiteConfiguration {
    * The website url for the embed.
    */
   WebsiteURL: URL;
+  /**
+   * The skills to appear in the "MY SKILLS" section.
+   */
+  Skills?: (Icons | string)[];
+  /**
+   * The style to display your skills in.
+   */
+  SkillStyle?: SkillStyles;
 }
 
 // Configuration*
@@ -163,7 +205,30 @@ export const Configuration: WebsiteConfiguration = {
     Emoji: "✈️",
     Title: "Nothing Right Now",
     Description: "I haven't been working on anything else lately."
-  }]
+  }],
+  Skills: [
+    Icons.React,
+    Icons.CSS,
+    Icons.HTML,
+    Icons.Blender,
+    Icons.Cloudflare,
+    Icons.Codepen,
+    Icons.Discord,
+    Icons.DiscordBots,
+    Icons.Twitter,
+    Icons.ExpressJS,
+    Icons.Git,
+    Icons.Github,
+    Icons.JavaScript,
+    Icons.Markdown,
+    Icons.NextJS,
+    Icons.NodeJS,
+    Icons.StackOverflow,
+    Icons.VisualStudio,
+    Icons.VSCode,
+    Icons.Vercel
+  ],
+  SkillStyle: SkillStyles.None
 }
 
 
