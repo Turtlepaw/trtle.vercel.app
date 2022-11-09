@@ -228,7 +228,7 @@ export const Configuration: WebsiteConfiguration = {
     Icons.VSCode,
     Icons.Vercel
   ],
-  SkillStyle: SkillStyles.None
+  SkillStyle: SkillStyles.Block
 }
 
 

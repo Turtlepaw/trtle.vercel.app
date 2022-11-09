@@ -100,11 +100,11 @@ const Home: NextPage = () => {
                       })}
                     </div>
                   ) : (
-                    <Center className='mt-2'>
+                    <div className='mt-2 FlexContainer2'>
                       {Configuration.Skills.map(e => {
                         const Name = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", ""));
                         return (
-                          <div className='Role rounded-[.3rem] w-24 mx-1 py-1'>
+                          <div className='Role rounded-[.3rem] w-24 mx-1 py-1 FlexItem2 my-1'>
                             <Center>
                               <img src={e} className="w-5 inline hover:opacity-75 cursor-pointer" />
                               <div className='inline ml-2'>
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
                           </div>
                         )
                       })}
-                    </Center>
+                    </div>
                   )
                 }
               </div>
