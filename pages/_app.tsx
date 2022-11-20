@@ -194,18 +194,26 @@ export const Configuration: WebsiteConfiguration = {
   }],
   LinkStyle: LinkStyle.None,
   Sections: [{
+    Icon: "https://beep.trtle.xyz/Robot.svg",
+    Title: "Beep Boop",
+    IconRounded: TailwindRoundedSizes.Small,
+    IconBackground: true,
+    Description: "Beep Boop is a Discord bot designed for large servers.",
+    Link: "https://bop.trtle.xyz",
+    Interactable: true
+  }, {
     Icon: "https://cdn.discordapp.com/avatars/942858850850205717/35f7b68f8f64be0df28554968531bcd2?size=4096",
     Title: "Forms",
     IconRounded: TailwindRoundedSizes.Full,
     Description: "Create custom in-app modals and send submissions to a channel using webhooks.",
     Link: "https://discord.gg/KGB6QpBK4F",
     Interactable: true
-  },{
+  }/*, {
     Interactable: false,
     Emoji: "✈️",
     Title: "Nothing Right Now",
     Description: "I haven't been working on anything else lately."
-  }],
+  }*/],
   Skills: [
     Icons.React,
     Icons.CSS,

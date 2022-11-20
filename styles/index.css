@@ -120,13 +120,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   /*.card,*/
   .footer {
     border-color: #222;
   }
+
   .code {
     background: #111;
   }
+
   .logo img {
     filter: invert(1);
   }
@@ -141,7 +144,7 @@
 }
 
 .Center {
-  transform: translate(0%, 32%);
+  transform: translate(0%, -15%);
 }
 
 .FlexContainer {

@@ -96,7 +96,7 @@ const Home: NextPage = () => {
                     <div className='pt-3 FlexContainer2'>
                       {Configuration.Skills.map(e => {
                         const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
-                        return <img src={URL} className="mx-1 my-1 FlexItem2 w-1"/>
+                        return <img src={URL} className="mx-1 my-1 FlexItem2 w-1" />
                       })}
                     </div>
                   ) : (
