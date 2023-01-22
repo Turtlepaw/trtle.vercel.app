@@ -103,6 +103,7 @@ export interface WebsiteSection {
    * The link that the card will have.
    */
   Link?: URL;
+  Size?: string;
 }
 
 export interface WebsiteConfiguration {
@@ -194,19 +195,25 @@ export const Configuration: WebsiteConfiguration = {
   }],
   LinkStyle: LinkStyle.None,
   Sections: [{
-    Icon: "https://beep.trtle.xyz/Robot.svg",
+    Icon: "https://beep.trtle.xyz/icon.svg",
     Title: "Beep Boop",
-    IconRounded: TailwindRoundedSizes.Small,
-    IconBackground: true,
+    IconRounded: TailwindRoundedSizes.Large,
     Description: "Beep Boop is a Discord bot designed for large servers.",
     Link: "https://bop.trtle.xyz",
     Interactable: true
   }, {
     Icon: "https://cdn.discordapp.com/avatars/942858850850205717/35f7b68f8f64be0df28554968531bcd2?size=4096",
     Title: "Forms",
-    IconRounded: TailwindRoundedSizes.Full,
+    IconRounded: TailwindRoundedSizes.Large,
     Description: "Create custom in-app modals and send submissions to a channel using webhooks.",
     Link: "https://discord.gg/KGB6QpBK4F",
+    Interactable: true
+  }, {
+    Icon: "https://cdn.discordapp.com/icons/933113625537835049/e36e3ddcc37019459f1562c5f4e8e5b2.png?size=4096",
+    Size: "60rem",
+    Title: "Discord Trivia",
+    Description: "Easily inplement a trivia command into your Discord.js bot.",
+    Link: "https://github.com/Elitezen/discord-trivia",
     Interactable: true
   }/*, {
     Interactable: false,

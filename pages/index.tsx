@@ -1,4 +1,4 @@
-import { Button, Center } from '@chakra-ui/react'
+import { Button, Center, HStack, Stack, Tooltip, VStack } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -17,6 +17,10 @@ function Feature({ IsChecked, children }: {
       </div>
     </div>
   )
+}
+
+function capitalizeFirstLetter(string: String) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 const Home: NextPage = () => {
@@ -49,7 +53,7 @@ const Home: NextPage = () => {
             alt="Avatar"
             width="100rem"
             height="100rem"
-            className="rounded-full"
+            className="rounded-full !border-[#a9ba84] !border-2 border-solid"
           />
         }
         <h1 className="font-bold text-3xl mt-5">
@@ -91,32 +95,49 @@ const Home: NextPage = () => {
             <div className='pt-5'>
               <h2 className='uppercase font-bold text-lg'>My Skills</h2>
               <div className={`${Configuration.SkillStyle}`}>
-                {
-                  (Configuration.SkillStyle.length > 0) ? (
-                    <div className='pt-3 FlexContainer2'>
-                      {Configuration.Skills.map(e => {
-                        const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
-                        return <img src={URL} className="mx-1 my-1 FlexItem2 w-1" />
-                      })}
-                    </div>
-                  ) : (
-                    <Center className='mt-2'>
-                      {Configuration.Skills.map(e => {
-                        const Name = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", ""));
-                        return (
-                          <div className='Role rounded-[.3rem] w-24 mx-1 py-1'>
-                            <Center>
-                              <img src={e} className="w-5 inline hover:opacity-75 cursor-pointer" />
-                              <div className='inline ml-2'>
-                                {Name}
-                              </div>
-                            </Center>
-                          </div>
-                        )
-                      })}
-                    </Center>
-                  )
-                }
+                <Center>
+                  {
+                    (Configuration.SkillStyle.length > 0) ? (
+                      <div className='pt-3 FlexContainer2'>
+                        {Configuration.Skills.map(e => {
+                          const _IconName = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase());
+                          const Names = {
+                            stackoverflow: "Stack Overflow",
+                            vscode: "Visual Studio Code",
+                            visualstudio: "Visual Studio",
+                            html: "HTML",
+                            css: "CSS",
+                            expressjs: "Express.js",
+                            nextjs: "Next.js",
+                            nodejs: "Node.js",
+                            discordbots: "Discord Bots"
+                          }
+                          const IconName = Names[_IconName] != null ? Names[_IconName] : capitalizeFirstLetter(_IconName);
+                          const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
+                          return <Tooltip label={IconName} placement='top' bg="#0c0d0f" borderRadius={6}>
+                            <img src={URL} className="mx-1 my-1 FlexItem2 w-1" alt={IconName} />
+                          </Tooltip>
+                        })}
+                      </div>
+                    ) : (
+                      <Center className='mt-2'>
+                        {Configuration.Skills.map(e => {
+                          const Name = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", ""));
+                          return (
+                            <div className='Role rounded-[.3rem] w-24 mx-1 py-1'>
+                              <Center>
+                                <img src={e} className="w-5 inline hover:opacity-75 cursor-pointer" />
+                                <div className='inline ml-2'>
+                                  {Name}
+                                </div>
+                              </Center>
+                            </div>
+                          )
+                        })}
+                      </Center>
+                    )
+                  }
+                </Center>
               </div>
             </div>
           )
@@ -132,27 +153,27 @@ const Home: NextPage = () => {
                     e.Icon != null && (
                       e.IconBackground == true ? (
                         <Center className='pb-5'>
-                          <div className={e.IconBackground == true ? "bg-gray-600 rounded-full w-[4rem] h-[4rem] py-4" : ""}>
+                          <div className={e.IconBackground == true ? `bg-gray-600 rounded-full w-[${"4rem"}] h-[${"4rem"}] py-4` : ""}>
                             <Center className='justify-center flex align-middle items-center Center'>
                               <img
                                 src={e.Icon}
                                 alt="Card Icon"
-                                width="38rem"
-                                height="38rem"
+                                width={e.Size ?? "38rem"}
+                                height={e.Size ?? "38rem"}
                                 className={`${e.IconRounded}`}
                               />
                             </Center>
                           </div>
                         </Center>
                       ) : (
-                        <div className='pb-2'>
+                        <div className='pb-3'>
                           <Center>
                             <img
                               src={e.Icon}
                               alt="Card Icon"
-                              width="40rem"
-                              height="40rem"
-                              className={`${e.IconRounded} my-4`}
+                              width={e.Size ?? "50rem"}
+                              height={e.Size ?? "50rem"}
+                              className={`${e.IconRounded} mt-4`}
                             />
                           </Center>
                         </div>
@@ -160,7 +181,7 @@ const Home: NextPage = () => {
                     )
                   }
                   {e.Emoji != null && <h2>{e.Emoji}</h2>}
-                  <h2 className='font-medium'>{e.Title}</h2>
+                  <h2 className='font-semibold'>{e.Title}</h2>
                   <p>{e.Description}</p>
                 </div>
               </a>

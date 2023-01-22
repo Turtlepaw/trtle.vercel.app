@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html, .Text,
+:root {
+  --thumb: #43454f;
+  --color: #ff5c5e;
+  --scrollbar: #18191c;
+}
+
+html,
+.Text,
 body {
   padding: 0;
   margin: 0;
@@ -21,6 +28,7 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
@@ -56,3 +64,22 @@ and select a font and put in in the `url(...)` space
 }
 
 */
+
+body::-webkit-scrollbar {
+  width: 7px;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumb) var(--scrollbar);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumb);
+  border-radius: 6px;
+  border: 1px solid var(--scrollbar);
+}
