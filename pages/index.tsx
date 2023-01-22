@@ -147,7 +147,7 @@ const Home: NextPage = () => {
         <div className='pt-5'>
           <h2 className='uppercase font-bold text-lg'>What I do</h2>
           <div className="gridDisplay">
-            {Configuration.Sections.map(e => (
+            {Configuration?.Sections && Configuration.Sections.map(e => (
               <a href={e.Link}>
                 <div className={`px-20 py-5 card text-center ${e.Interactable && "ActiveCard"}`}>
                   {
