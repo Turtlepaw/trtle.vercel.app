@@ -111,7 +111,7 @@ const Home: NextPage = () => {
                             nextjs: "Next.js",
                             nodejs: "Node.js",
                             discordbots: "Discord Bots"
-                          } satisfies Record<string, string>;
+                          };
                           //@ts-expect-error
                           const IconName = Names[_IconName] != null ? Names[_IconName] : capitalizeFirstLetter(_IconName);
                           const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
