@@ -97,7 +97,7 @@ const Home: NextPage = () => {
               <div className={`${Configuration.SkillStyle}`}>
                 <Center>
                   {
-                    (Configuration.SkillStyle.length > 0) ? (
+                    (Configuration.SkillStyle == null ? false : Configuration?.SkillStyle.length > 0) ? (
                       <div className='pt-3 FlexContainer2'>
                         {Configuration.Skills.map(e => {
                           const _IconName = (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase());
@@ -111,7 +111,8 @@ const Home: NextPage = () => {
                             nextjs: "Next.js",
                             nodejs: "Node.js",
                             discordbots: "Discord Bots"
-                          }
+                          } satisfies Record<string, string>;
+                          //@ts-expect-error
                           const IconName = Names[_IconName] != null ? Names[_IconName] : capitalizeFirstLetter(_IconName);
                           const URL = "https://skillicons.dev/icons?i=" + (e.substring(7, e.length).replace("-Dark", "").replace(".svg", "").toLowerCase())
                           return <Tooltip label={IconName} placement='top' bg="#0c0d0f" borderRadius={6}>
