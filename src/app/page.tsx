@@ -42,34 +42,34 @@ export default function Home() {
           <h2>
             Fitness Challenges <span>-&gt;</span>
           </h2>
-          <p>Play challenges with friends and family.</p>
-        </a>
-
-        {/* <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Beep Boop <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
+          <p>Play fitness based challenges with friends and family.</p>
         </a>
 
         <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="https://fitnesschallenges.vercel.app/health-connect-provider"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Deploy <span>-&gt;</span>
+            Health Connect Extenstions <span>-&gt;</span>
           </h2>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            Extend Google&apos;s Health Connect with more supported apps.
           </p>
-        </a> */}
+        </a>
+
+        <a
+          href="https://form-builder.pages.dev/"
+          className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2>
+            Forms <span>-&gt;</span>
+          </h2>
+          <p>Build customizable forms for your discord servers.</p>
+        </a>
       </div>
     </main>
   )
