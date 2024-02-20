@@ -1,19 +1,33 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
+const ICON_SIZE = 20;
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Turtlepaw - Developer
-        </p>
+      <div className={styles.infoGrid}>
+        <div className={styles.description}>
+          <p>Turtlepaw - Developer</p>
+        </div>
+
+        <div className={styles.links}>
+          <p>
+            <Link href="https://github.com/turtlepaw" target="_blank">
+              <Image
+                src="/github.svg"
+                alt="GitHub"
+                width={ICON_SIZE}
+                height={ICON_SIZE}
+              />
+            </Link>
+          </p>
+        </div>
       </div>
 
       <div className={styles.center}>
-        <h1 style={{ fontSize: 60 }}>
-          Hey there!
-        </h1>
+        <h1 style={{ fontSize: 60 }}>Hey there!</h1>
       </div>
       <div>
         <h1 style={{ fontSize: 25, paddingBottom: 25 }}>
@@ -54,9 +68,7 @@ export default function Home() {
           <h2>
             Health Connect Extenstions <span>-&gt;</span>
           </h2>
-          <p>
-            Extend Google&apos;s Health Connect with more supported apps.
-          </p>
+          <p>Extend Google&apos;s Health Connect with more supported apps.</p>
         </a>
 
         <a
@@ -72,5 +84,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
