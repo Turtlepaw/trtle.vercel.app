@@ -41,15 +41,15 @@ export default function Home() {
         </a>
 
         <a
-          href="https://fitnesschallenges.vercel.app/health-connect-provider"
+          href="https://github.com/turtlepaw/health"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Health Connect Extenstions <span>-&gt;</span>
+            Health <span>-&gt;</span>
           </h2>
-          <p>Extend Google&apos;s Health Connect with more supported apps.</p>
+          <p>Unlock more insights into your health from your Wear OS watch.</p>
         </a>
 
         <a
@@ -64,26 +64,29 @@ export default function Home() {
           <p>Build customizable forms for your discord servers.</p>
         </a>
       </div>
-      <div className="justify-center flex mt-10 flex-row gap-5">
-        <p>
-          <Link href="https://github.com/turtlepaw" target="_blank">
-            <Image
-              src="/github.svg"
-              alt="GitHub"
-              width={ICON_SIZE}
-              height={ICON_SIZE}
-            />
-          </Link>
-          <Link href="https://github.com/turtlepaw" target="_blank">
-            <Image
-              src="/bluesky.png"
-              style={{ filter: "brightness(0) saturate(100%) invert(100%)" }}
-              alt="GitHub"
-              width={ICON_SIZE}
-              height={ICON_SIZE}
-            />
-          </Link>
-        </p>
+      <div className="justify-center mt-10 flex-row gap-5 flex">
+        <Link href="https://github.com/turtlepaw" target="_blank">
+          <Image
+            src="/github.svg"
+            alt="GitHub"
+            className="hover:scale-110 transition-all duration-200"
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
+        </Link>
+        <Link
+          href="https://bsky.app/profile/turtlepaw.bsky.social"
+          target="_blank"
+        >
+          <Image
+            src="/bluesky.png"
+            style={{ filter: "brightness(0) saturate(100%) invert(100%)" }}
+            className="hover:scale-110 transition-all duration-200"
+            alt="Bluesky"
+            width={ICON_SIZE}
+            height={ICON_SIZE}
+          />
+        </Link>
       </div>
     </main>
   );
