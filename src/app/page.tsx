@@ -75,7 +75,7 @@ export default function Home() {
           />
         </Link>
         <Link
-          href="https://bsky.app/profile/turtlepaw.bsky.social"
+          href="https://bsky.app/profile/turtlepaw.github.io"
           target="_blank"
         >
           <Image
